@@ -1,5 +1,6 @@
-import 'package:clone_spotify/core/modules/home/components/header_home.dart';
+import 'package:clone_spotify/core/modules/home/components/home_bottom_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,8 +8,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.light,
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                  child: Center(
+                child: Column(
+                  children: [],
+                ),
+              )),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: HomeBottomNavigation(),
+              )
+            ],
+          )),
     );
   }
 }
